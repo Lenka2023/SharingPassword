@@ -66,6 +66,8 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
+			 <a href="{{ url('/sharePass') }}">SharePass</a>
+
             @if (Route::has('login'))
                 <div class="top-right links">
                     @if (Auth::check())
