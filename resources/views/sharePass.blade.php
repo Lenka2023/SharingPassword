@@ -32,6 +32,7 @@
                                 <button type="submit" class="btn btn-primary">
                                     submit
                                 </button>
+                                {{ $encriptpassword[$i] }}     
         </div>
                     </form>
     </body>
