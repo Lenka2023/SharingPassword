@@ -15,7 +15,7 @@ class SharepassController extends Controller
 		public function Get_password(Request $request)
    	
 		{
-		    	$password= $request->input('password');
+		    	$password= bcrypt($request->input('password'));
 		DB::insert('insert into passwords (password) values(?)',[$password]);
 		echo "Record inserted successfully.<br/>";
 		
