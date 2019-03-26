@@ -32,7 +32,7 @@
                                 <button type="submit" >
                                     submit
                                 </button>
-                                <a href='encriptpassword'>{{ $encriptpassword }}</a>
+                                <a href='/encriptpassword'>{{$password}}</a>
                                     
         </div>
                     </form>

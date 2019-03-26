@@ -22,10 +22,10 @@ class SharepassController extends Controller
 		DB::insert('insert into passwords (password) values(?)',[$password]);
 		echo "Record inserted successfully.<br/>";
 		$encriptpassword=DB::table('passwords')->select('password')->get();
-		echo $encriptpassword;
+		//echo $encriptpassword;
 		//$pass = decrypt($password);
 	//echo $pass;
-		return view('sharePass',compact('encriptpassword'));
+		return view('sharePass',compact('password'));
 							
 		}
 }
