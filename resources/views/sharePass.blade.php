@@ -29,10 +29,11 @@
                     <form  method="POST" action="{{ url('sharePass') }}">
                         {{ csrf_field() }}
                         <input  type="password"  name="password" required>
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" >
                                     submit
                                 </button>
-                                {{ $encriptpassword[$i] }}     
+                                <a href='encriptpassword'>{{ $encriptpassword }}</a>
+                                    
         </div>
                     </form>
     </body>
