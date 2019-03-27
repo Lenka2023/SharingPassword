@@ -25,16 +25,29 @@
         </style>
     </head>
     <body>
-        <div >
+        <div>
                     <form  method="POST" action="{{ url('sharePass') }}">
                         {{ csrf_field() }}
-                        <input  type="password"  name="password" required>
+                        <input  id="passw" type="password"  name="password" required>
                                 <button type="submit" >
                                     submit
                                 </button>
-                                <a href='/encriptpassword'>{{$password}}</a>
+                                <a href="{{ url('sharePass') }}" onclick="pass()">link</a> <div id="data"></div>
                                     
         </div>
                     </form>
+
+                    <script type="text/javascript">
+                        
+                      function pass(){
+                        var passw=document.getElementById("passw").value;
+                        alert("passw");
+                        console.log(passw);
+                        var data=document.getElementById("data");
+                        data.innerText = passw;
+
+                      }  
+                    </script>
+     
     </body>
 </html>   
