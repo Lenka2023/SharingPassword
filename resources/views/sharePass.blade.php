@@ -38,11 +38,11 @@
                     </form>
 
                     <script type="text/javascript">
-                        
+                       <php $url = action('SharepassController@Show_password');?> 
                       function pass(){
                        var xhr = new XMLHttpRequest();
 
-xhr.open('GET', '../app/Http/Controllers/SharepassController.php', true);
+xhr.open('GET', '<?php $url?>', true);
 
 xhr.send(); // (1)
 

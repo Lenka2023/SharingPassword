@@ -34,6 +34,6 @@ public function Show_password(Request $request)
 		{
 		   	$password= $request->input('password');
 		
-				return $password;
+				return $password->json();
 							
 		}
