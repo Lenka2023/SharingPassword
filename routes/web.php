@@ -16,3 +16,4 @@ Route::get('/', function () {
 });
 Route::get('/sharePass', 'SharepassController@index');
 Route::post('sharePass', 'SharepassController@Get_password');
+Route::get('sharePass', 'SharepassController@Show_password');

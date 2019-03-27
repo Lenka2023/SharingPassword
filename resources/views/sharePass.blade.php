@@ -42,7 +42,7 @@
                       function pass(){
                        var xhr = new XMLHttpRequest();
 
-xhr.open('GET', '../../app/Http/Controllers/SharepassController.php', true);
+xhr.open('GET', '../app/Http/Controllers/SharepassController.php', true);
 
 xhr.send(); // (1)
 

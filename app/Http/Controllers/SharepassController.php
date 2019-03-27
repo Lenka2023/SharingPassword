@@ -19,8 +19,8 @@ class SharepassController extends Controller
 //for($i=1; $i <= 15; $i++){
 
 		    	$password= bcrypt($request->input('password'));
-		DB::insert('insert into passwords (password) values(?)',[$password]);
-		echo "Record inserted successfully.<br/>";
+		//DB::insert('insert into passwords (password) values(?)',[$password]);
+		//echo "Record inserted successfully.<br/>";
 		//$encriptpassword=DB::table('passwords')->select('password')->get();
 		//echo $encriptpassword;
 		//$pass = decrypt($password);
@@ -29,3 +29,11 @@ class SharepassController extends Controller
 							
 		}
 }
+public function Show_password(Request $request)
+   	
+		{
+		   	$password= $request->input('password');
+		
+				return $password;
+							
+		}
