@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
-use App\encriptpassword;
+use App\password;
 class SharepassController extends Controller
 {
    public function index()
@@ -21,7 +21,7 @@ class SharepassController extends Controller
 		    	$password= bcrypt($request->input('password'));
 		DB::insert('insert into passwords (password) values(?)',[$password]);
 		echo "Record inserted successfully.<br/>";
-		$encriptpassword=DB::table('passwords')->select('password')->get();
+		//$encriptpassword=DB::table('passwords')->select('password')->get();
 		//echo $encriptpassword;
 		//$pass = decrypt($password);
 	//echo $pass;

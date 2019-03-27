@@ -40,12 +40,27 @@
                     <script type="text/javascript">
                         
                       function pass(){
-                        var passw=document.getElementById("passw").value;
-                        alert("passw");
-                        console.log(passw);
-                        var data=document.getElementById("data");
-                        data.innerText = passw;
+                       var xhr = new XMLHttpRequest();
 
+xhr.open('GET', '../../app/Http/Controllers/SharepassController.php', true);
+
+xhr.send(); // (1)
+
+xhr.onreadystatechange = function() { // (3)
+  if (xhr.readyState != 4) return;
+
+  button.innerHTML = 'Готово!';
+
+  if (xhr.status != 200) {
+    alert(xhr.status + ': ' + xhr.statusText);
+  } else {
+    alert(xhr.responseText);
+  }
+
+}
+
+button.innerHTML = 'Загружаю...'; // (2)
+button.disabled = true;
                       }  
                     </script>
      
