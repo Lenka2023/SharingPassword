@@ -41,7 +41,7 @@
                       function pass(){
                        var xhr = new XMLHttpRequest();
 
-xhr.open('GET', 'localhost/SharingPassword1.loc/public/sharePass', true);
+xhr.open('GET', 'localhost/SharingPassword.loc/sharePass', true);
 
 xhr.send(); // (1)
 
