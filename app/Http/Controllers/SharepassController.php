@@ -28,12 +28,13 @@ class SharepassController extends Controller
 		return view('sharePass',compact('password'));
 							
 		}
-}
+
 public function Show_password(Request $request)
    	
 		{
 		   	$password= $request->input('password');
 		
-				return $password->json();
+				return $password;
 							
 		}
+	}

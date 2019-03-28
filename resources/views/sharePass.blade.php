@@ -38,7 +38,7 @@
                     </form>
 
                     <script type="text/javascript">
-                       <php $url = action('SharepassController@Show_password');?> 
+                       <php $url = action('SharepassController@Show_password'); echo $url?> 
                       function pass(){
                        var xhr = new XMLHttpRequest();
 
