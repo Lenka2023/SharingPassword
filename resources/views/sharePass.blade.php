@@ -32,8 +32,12 @@
                                 <button type="submit" >
                                     submit
                                 </button>
-                                <a href="{{ url('sharePass') }}" onclick="pass()">link</a> <div id="data"></div>
-                                
+                                @foreach($password as $pasword)
+                                <a href="{{ url('sharePass') }}" onclick="pass()">{{$password}}</a> <div id="data"></div>
+                                @endforeach
+                                @foreach($pass as $pas)
+                                {{$pass}}
+                                @endforeach
                     </form>
 
                     <script type="text/javascript">
