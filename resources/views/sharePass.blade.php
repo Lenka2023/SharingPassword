@@ -33,8 +33,7 @@
                                     submit
                                 </button>
                                 <a href="{{ url('sharePass') }}" onclick="pass()">link</a> <div id="data"></div>
-                                    
-        </div>
+                                
                     </form>
 
                     <script type="text/javascript">

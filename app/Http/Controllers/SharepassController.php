@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Http\Request;
 use App\Passwords;
+use App\Password;
 class SharepassController extends Controller
 {
 	public function boot()
@@ -42,18 +43,18 @@ class SharepassController extends Controller
 public function show(Request $request )
    	
 		{
-			$password= bcrypt($request->input('password'));
-			dd($password);
+			$password= $request->input('password');
+			//dd($password);
 			//$request= Passwords::find($id);
-		    return view('sharePass', compact('request'));
+		    return "view('sharePass', compact('password'))";
 							
 		}
-		public function store()
+		public function store(Request $request)
     {
         $this->validate(request(), [
             'password' => 'required|min:2'    
         ]);
-
+$password1= bcrypt($request->input('password'));
         Passwords::create (
           request(array('password'))
         );
