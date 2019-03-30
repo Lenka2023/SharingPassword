@@ -29,41 +29,45 @@
                     <form  method="POST" action="{{ url('sharePass') }}">
                         {{ csrf_field() }}
                         <input  id="passw" type="password"  name="password" required>
-                                <button type="submit" >
+                                <button type="submit" onclick="createLink()">
                                     submit
                                 </button>
-                                @foreach($password as $pasword)
-                                <a href="{{ url('sharePass') }}" onclick="pass()">{{$password}}</a> <div id="data"></div>
-                                @endforeach
-                                @foreach($pass as $pas)
-                                {{$pass}}
-                                @endforeach
+                               
+                                <!--<a href="{{ url('sharePass') }}" onclick="pass()">{{$password}}</a>--> <div id="data"></div><div id="link"></div>
+                                
+                                
+                                
                     </form>
 
                     <script type="text/javascript">
+                         function createLink(){
+                                document.write("<a href="{{ url('sharePass') }}" onclick="pass()">");
+                                document.write("{{$password}}");
+                                document.write("</a>");
+                         }
                       function pass(){
-                       var xhr = new XMLHttpRequest();
+                                var xhr = new XMLHttpRequest();
 
-xhr.open('GET', 'localhost/SharingPassword.loc/sharePass', true);
+                                xhr.open('GET', 'localhost/SharingPassword.loc/sharePass', true);
 
-xhr.send(); // (1)
+                                xhr.send(); // (1)
 
-xhr.onreadystatechange = function() { // (3)
-  if (xhr.readyState != 4) return;
+                                xhr.onreadystatechange = function() { // (3)
+                                  if (xhr.readyState != 4) return;
 
-  button.innerHTML = 'Готово!';
+                                  button.innerHTML = 'Готово!';
 
-  if (xhr.status != 200) {
-    alert(xhr.status + ': ' + xhr.statusText);
-  } else {
-    alert(xhr.responseText);
-  }
+                                  if (xhr.status != 200) {
+                                    alert(xhr.status + ': ' + xhr.statusText);
+                                  } else {
+                                    alert(xhr.responseText);
+                                  }
 
-}
+                                }
 
-button.innerHTML = 'Загружаю...'; // (2)
-button.disabled = true;
-                      }  
+                                    button.innerHTML = 'Загружаю...'; // (2)
+                                    button.disabled = true;
+                                                          }  
                     </script>
      
     </body>
