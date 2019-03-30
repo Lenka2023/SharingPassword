@@ -15,9 +15,7 @@ class SharepassController extends Controller
    public function index()
    	
 		{
-
-
-		    	return view('sharePass'); 
+    	return view('sharePass'); 
 		}
 		/*public function Get_password(Request $request)
    	
@@ -45,9 +43,12 @@ public function show(Request $request )
    	
 		{
 			$pass= $request->input('password');
-			//dd($password);
-			//$request= Passwords::find($id);
-		    return view('sharePass', compact('pass'));
+			if ($request->has('password')){
+        return request()->json()->all();
+   								}else{
+   								return view('sharePass');	
+   								}
+		    
 							
 		}
 		public function store(Request $request)
@@ -55,11 +56,16 @@ public function show(Request $request )
         $this->validate(request(), [
             'password' => 'required|min:2'    
         ]);
-$password1= bcrypt($request->input('password'));
+        if ($request->has('password')){
+$password= bcrypt($request->input('password'));
+}else{$password="ilnk";
+  	}
         Passwords::create (
           request(array('password'))
         );
 
        return view('sharePass',compact('password'));
+   								
+
     }
 	}

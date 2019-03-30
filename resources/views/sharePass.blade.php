@@ -33,18 +33,19 @@
                                     submit
                                 </button>
                                
-                                <!--<a href="{{ url('sharePass') }}" onclick="pass()">{{$password}}</a>--> <div id="data"></div><div id="link"></div>
+                                
+                                 <div id="data"></div><div id="link"></div>
                                 
                                 
                                 
                     </form>
 
                     <script type="text/javascript">
-                         function createLink(){
+                         /*function createLink(){
                                 document.write("<a href="{{ url('sharePass') }}" onclick="pass()">");
                                 document.write("{{$password}}");
                                 document.write("</a>");
-                         }
+                         }*/
                       function pass(){
                                 var xhr = new XMLHttpRequest();
 
