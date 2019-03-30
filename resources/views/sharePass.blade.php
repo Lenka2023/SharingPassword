@@ -25,11 +25,11 @@
         </style>
     </head>
     <body>
-        <div>
-                    <form  method="POST" action="{{ url('sharePass') }}">
+        
+          <form  method="POST" action="{{ url('sharePass') }}">
                         {{ csrf_field() }}
                         <input  id="passw" type="password"  name="password" required>
-                                <button type="submit" onclick="createLink()">
+                                <button type="submit" onclick="createLinkTime()">
                                     submit
                                 </button>
                                
@@ -38,14 +38,23 @@
                                 
                                 
                                 
-                    </form>
-
-                    <script type="text/javascript">
-                         /*function createLink(){
-                                document.write("<a href="{{ url('sharePass') }}" onclick="pass()">");
-                                document.write("{{$password}}");
-                                document.write("</a>");
-                         }*/
+                    </form>           
+                     <script type="text/javascript">
+                        var Time;
+                        function createLinkTime(){
+                            Time = setTimeout(createLink(), 3000);
+                                                 }
+                        function createLink(){
+                            var paste=document.getElementById("link");
+                         var link = "{{ url('sharePass') }}";
+                          var pass = "pass()";
+                          var element = document.createElement("a");
+                            element.setAttribute("href", link);
+                           // element.setAttribute("onclick", pass);
+                            element.innerHTML = "1";
+                             //document.body.appendChild(element);
+                             paste.appendChild(element);
+                                        }
                       function pass(){
                                 var xhr = new XMLHttpRequest();
 
@@ -68,8 +77,9 @@
 
                                     button.innerHTML = 'Загружаю...'; // (2)
                                     button.disabled = true;
-                                                          }  
-                    </script>
-     
+                                                          }                  
+
+                                          </script>
+                    
     </body>
 </html>   

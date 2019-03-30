@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Passwords;
 use App\pass;
 use App\password;
+use Hash;
 class SharepassController extends Controller
 {
 	public function boot()
@@ -42,13 +43,10 @@ class SharepassController extends Controller
 public function show(Request $request )
    	
 		{
-			$pass= $request->input('password');
-			if ($request->has('password')){
-        return request()->json()->all();
-   								}else{
-   								return view('sharePass');	
-   								}
-		    
+			//$password = Passwords::save();
+      // return request()->json($password, 201);
+   								
+		   return view('sharePass'); 
 							
 		}
 		public function store(Request $request)
@@ -57,13 +55,13 @@ public function show(Request $request )
             'password' => 'required|min:2'    
         ]);
         if ($request->has('password')){
-$password= bcrypt($request->input('password'));
+//$password[]= bcrypt($request->input('password'));
 }else{$password="ilnk";
   	}
-        Passwords::create (
-          request(array('password'))
-        );
-
+    
+       Passwords::create (request(array('password'))
+      );
+//'password' => bcrypt($data['password']),
        return view('sharePass',compact('password'));
    								
 

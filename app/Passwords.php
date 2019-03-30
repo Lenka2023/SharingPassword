@@ -10,6 +10,8 @@ class Passwords extends Model
    protected $fillable = [
         'password', 
     ];
-    
+ protected $hidden = [
+        'password', 'remember_token',
+    ];   
 protected $table = 'Passwords';
 }

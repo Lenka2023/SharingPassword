@@ -23,6 +23,7 @@ class ComposerServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+       // $this->app->bind('App\Library\Services\request', function ($app) {
+         // return new request();
+        }//);
     }
-}
