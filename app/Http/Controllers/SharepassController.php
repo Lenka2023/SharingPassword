@@ -43,6 +43,7 @@ class SharepassController extends Controller
 public function show(Request $request )
    	
 		{
+      $password[]= bcrypt($request->input('password'));
 			//$password = Passwords::save();
       // return request()->json($password, 201);
    								
@@ -55,6 +56,7 @@ public function show(Request $request )
             'password' => 'required|min:2'    
         ]);
         if ($request->has('password')){
+          $password="password";
 //$password[]= bcrypt($request->input('password'));
 }else{$password="ilnk";
   	}
