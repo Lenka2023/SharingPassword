@@ -29,29 +29,36 @@
           <form  method="POST" action="{{ url('sharePass') }}">
                         {{ csrf_field() }}
                         <input  id="passw" type="password"  name="password" required>
-                                <button type="submit" onclick="createLinkTime()">
+                                <button type="submit" onclick="createLink()">
                                     submit
                                 </button>
                                
-                                
+                               
+
+                                        <!--  @if(isset($password))-->
+
+                                               
                                  <div id="data"></div><div id="link"></div>
-                                
-                                
+                                                        
+                                                <!--    @endif  -->
                                 
                     </form>           
                      <script type="text/javascript">
                         var Time;
                         function createLinkTime(){
-                            Time = setTimeout(createLink(), 3000);
+                            Time = setTimeout(createLink(), 9000);
                                                  }
                         function createLink(){
-                            var paste=document.getElementById("link");
+                           var paste=document.getElementById("link");
+                             /*document.write("<a href="{{ url('sharePass') }}" onclick="pass()">");
+                            document.write("123");
+                            document.write("</a>");*/
                          var link = "{{ url('sharePass') }}";
                           var pass = "pass()";
                           var element = document.createElement("a");
                             element.setAttribute("href", link);
-                           // element.setAttribute("onclick", pass);
-                            element.innerHTML = "1";
+                            element.setAttribute("onclick", pass);
+                            element.innerHTML = "456";
                              //document.body.appendChild(element);
                              paste.appendChild(element);
                                         }
