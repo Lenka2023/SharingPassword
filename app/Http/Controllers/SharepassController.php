@@ -7,6 +7,7 @@ use App\Passwords;
 use App\pass;
 use App\password;
 use Hash;
+use Response;
 class SharepassController extends Controller
 {
 	public function boot()
@@ -42,13 +43,20 @@ class SharepassController extends Controller
 
 public function show(Request $request )
    	
-		{
-      $password[]= bcrypt($request->input('password'));
+		{//$password= $request->input('password');
+$password1=Passwords::get(array('password'));
+$id=Passwords::get(array('id'));
+
+    //$password=Passwords::create (request(array('password'))
+      //);
+      //$password=($request->input('password'));
+      //$pass->utf8_encode_deep($password);
+     // dd($password1);
 			//$password = Passwords::save();
-      // return request()->json($password, 201);
-   								
-		   return view('sharePass'); 
-							
+       //return request()->json($pass, 201);
+   			//return response()->json(array('success' => true, 'last_insert_id' => $password1->password), 200);					
+		  //return Response::json(array('success' => true), 200);
+			return view('sharePass'); 				
 		}
 		public function store(Request $request)
     {
@@ -60,11 +68,17 @@ public function show(Request $request )
 //$password[]= bcrypt($request->input('password'));
 }else{$password="ilnk";
   	}
-    
-       Passwords::create (request(array('password'))
-      );
+    //$password=Passwords::create (['password'          => $request['password'] ]);
+    $password=Passwords::create (['password'          => Hash::make($request['password']) ]);
+       //$password=Passwords::create (request(array('password')));
+       //'password'          => Hash::make($request['password'])
+        //]);
+        //dd($password->password);
+ $pass=$password->password;
+ //$password1=Passwords::get('password');
+ //dd($pass);
 //'password' => bcrypt($data['password']),
-       return view('sharePass',compact('password'));
+       return view('sharePass',compact('pass'));
    								
 
     }

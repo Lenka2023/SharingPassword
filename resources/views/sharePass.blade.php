@@ -59,8 +59,8 @@
                             element.setAttribute("href", link);
                             element.setAttribute("onclick", pass);
                             element.innerHTML = "{{$pass}}";
-                             //document.body.appendChild(element);
-                             paste.appendChild(element);
+                             document.body.appendChild(element);
+                             //paste.appendChild(element);
                                         }
                       function pass(){
                                 var xhr = new XMLHttpRequest();
