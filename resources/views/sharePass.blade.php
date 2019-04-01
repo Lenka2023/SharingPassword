@@ -58,7 +58,7 @@
                           var element = document.createElement("a");
                             element.setAttribute("href", link);
                             element.setAttribute("onclick", pass);
-                            element.innerHTML = "456";
+                            element.innerHTML = "{{$pass}}";
                              //document.body.appendChild(element);
                              paste.appendChild(element);
                                         }
