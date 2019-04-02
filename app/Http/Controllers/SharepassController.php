@@ -18,6 +18,7 @@ class SharepassController extends Controller
    public function index()
    	
 		{
+      $pass="ilnk";
     	return view('sharePass'); 
 		}
 		/*public function Get_password(Request $request)
@@ -45,13 +46,14 @@ class SharepassController extends Controller
 public function show(Passwords $request )
 {  	
 		 $pass="ilnk";
-     $dogs = Passwords::orderBy('id', 'desc')->first();
-     $pass1= $dogs->password;
+     $encpassword = Passwords::orderBy('id', 'desc')->first();
+     $pass1= $encpassword->password;
+     $pass=decrypt($pass1);
     //$password= $request->input('password');
  //$password=Passwords::get ( ['password'] );
    //$lastvalue = $collection->value()->last();    
 //$pass=$password1->password;
- dd($pass1);
+// dd($pass2);
 
     //$password=Passwords::create (request(array('password'))
       //);
@@ -63,8 +65,8 @@ public function show(Passwords $request )
 			//$password = Passwords::save();
        //return request()->json($pass, 201);
    			//return response()->json(array('success' => true, 'last_insert_id' => $password1->password), 200);					
-		  //return Response::json(array('password' => $password1->password), 200);
-			       return view('sharePass',compact('pass'));
+		  return Response::json(array('password' => $pass), 200);
+			      ///return view('sharePass',compact('pass'));
 		
 		}
 		public function store(Request $request)
