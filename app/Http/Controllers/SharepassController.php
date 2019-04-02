@@ -43,13 +43,15 @@ class SharepassController extends Controller
 		}*/
 
 public function show(Passwords $request )
-   	
-		/ $pass="ilnk";
+{  	
+		 $pass="ilnk";
+     $dogs = Passwords::orderBy('id', 'desc')->first();
+     $pass1= $dogs->password;
     //$password= $request->input('password');
  //$password=Passwords::get ( ['password'] );
    //$lastvalue = $collection->value()->last();    
 //$pass=$password1->password;
- //dd($password);
+ dd($pass1);
 
     //$password=Passwords::create (request(array('password'))
       //);
