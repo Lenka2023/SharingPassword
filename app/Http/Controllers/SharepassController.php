@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Passwords;
 use App\pass;
 use App\password;
+
 use Hash;
 use Response;
 class SharepassController extends Controller
@@ -41,42 +42,45 @@ class SharepassController extends Controller
 							
 		}*/
 
-public function show(Request $request )
+public function show(Passwords $request )
    	
-		{//$password= $request->input('password');
-$password1=Passwords::get(array('password'));
-$id=Passwords::get(array('id'));
+		/ $pass="ilnk";
+    //$password= $request->input('password');
+ //$password=Passwords::get ( ['password'] );
+   //$lastvalue = $collection->value()->last();    
+//$pass=$password1->password;
+ //dd($password);
 
     //$password=Passwords::create (request(array('password'))
       //);
       //$password=($request->input('password'));
       //$pass->utf8_encode_deep($password);
-     // dd($password1);
+      //dd($request->password);
+     // dd($response);
+
 			//$password = Passwords::save();
        //return request()->json($pass, 201);
    			//return response()->json(array('success' => true, 'last_insert_id' => $password1->password), 200);					
-		  //return Response::json(array('success' => true), 200);
-			return view('sharePass'); 				
+		  //return Response::json(array('password' => $password1->password), 200);
+			       return view('sharePass',compact('pass'));
+		
 		}
 		public function store(Request $request)
     {
+      $pass="ilnk";
         $this->validate(request(), [
             'password' => 'required|min:2'    
         ]);
         if ($request->has('password')){
-          $password="password";
-//$password[]= bcrypt($request->input('password'));
-}else{$password="ilnk";
+          $password=Passwords::create (['password' => encrypt($request['password']) ]);
+       $pass=$password->password;
+}else{ $pass="ilnk";
   	}
-    //$password=Passwords::create (['password'          => $request['password'] ]);
-    $password=Passwords::create (['password'          => Hash::make($request['password']) ]);
-       //$password=Passwords::create (request(array('password')));
-       //'password'          => Hash::make($request['password'])
-        //]);
-        //dd($password->password);
- $pass=$password->password;
- //$password1=Passwords::get('password');
- //dd($pass);
+    //$password=Passwords::create (['password' => encrypt($request['password']) ]);
+       
+//$pass=$password->password;
+// $password1=Passwords::get(['password']);
+ //dd($password1);
 //'password' => bcrypt($data['password']),
        return view('sharePass',compact('pass'));
    								
