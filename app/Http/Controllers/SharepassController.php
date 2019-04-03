@@ -36,7 +36,7 @@ public function show(Request $request, $id )
  //$password=Passwords::get ( ['password'] );
    //$lastvalue = $collection->value()->last();    
 //$pass=$password1->password;
- dd( $pass);
+ //dd( $pass);
 
     //$password=Passwords::create (request(array('password'))
       //);
