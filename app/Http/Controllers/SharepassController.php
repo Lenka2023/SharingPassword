@@ -7,7 +7,6 @@ use App\Passwords;
 use App\pass;
 use App\password;
 
-use Hash;
 use Response;
 class SharepassController extends Controller
 {
@@ -18,42 +17,26 @@ class SharepassController extends Controller
    public function index()
    	
 		{
+           
       $pass="ilnk";
-    	return view('sharePass'); 
+    	return view('sharePass',compact('pass'));
 		}
-		/*public function Get_password(Request $request)
-   	
-		{
-			
-		    	$password= bcrypt($request->input('password'));
-		//DB::insert('insert into passwords (password) values(?)',[$password]);
-		//echo "Record inserted successfully.<br/>";
-		//$encriptpassword=DB::table('passwords')->select('password')->get();
-		//echo $encriptpassword;
-		//$pass = decrypt($password);
-	//echo $pass;
-		    	$this->validate(request(), [
-            'password' => 'required|min:2'    
-        ]);
+		
 
-        Passwords::create(
-            request(array('password'))
-        );
-		return view('sharePass',compact('password'));
-							
-		}*/
-
-public function show(Passwords $request )
+public function show(Request $request, $id )
 {  	
 		 $pass="ilnk";
      $encpassword = Passwords::orderBy('id', 'desc')->first();
      $pass1= $encpassword->password;
      $pass=decrypt($pass1);
+    // $url = action('SharepassController@index');
+     //$url1 = action('SharepassController@show');
+    // $url2 = action('SharepassController@store');
     //$password= $request->input('password');
  //$password=Passwords::get ( ['password'] );
    //$lastvalue = $collection->value()->last();    
 //$pass=$password1->password;
-// dd($pass2);
+ dd( $pass);
 
     //$password=Passwords::create (request(array('password'))
       //);
@@ -78,8 +61,11 @@ public function show(Passwords $request )
         if ($request->has('password')){
           $password=Passwords::create (['password' => encrypt($request['password']) ]);
        $pass=$password->password;
+       $id=$password->id;
 }else{ $pass="ilnk";
   	}
+    //$url1 = action('SharepassController@show',['id' => $password->id]);
+          // dd($url1);
     //$password=Passwords::create (['password' => encrypt($request['password']) ]);
        
 //$pass=$password->password;

@@ -53,7 +53,7 @@
                              /*document.write("<a href="{{ url('sharePass') }}" onclick="pass()">");
                             document.write("123");
                             document.write("</a>");*/
-                         var link = "{{ url('sharePass') }}";
+                         var link = "{{ url('/sharePass/{encpassword}') }}";
                           var pass = "pass()";
                           var element = document.createElement("a");
                             element.setAttribute("href", link);
